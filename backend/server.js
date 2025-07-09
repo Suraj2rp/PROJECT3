@@ -1,18 +1,23 @@
-// server.js
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
-const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middleware (optional)
-app.use(express.json()); // For parsing JSON bodies
 
-// Sample route
-app.get('/', (req, res) => {
-  res.send('Hello, Express!');
-});
+dotenv.config();
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+app.use(cors());
+app.use(express.json());
+
+
+
+
+app.get('/api', (req, res) =>{
+  res.send("Hello Buddy");
+  console.log("Hwl Wor;ld");
+})
+
+app.listen(process.env.PORT,() => {
+  console.log("Server is running");
+})

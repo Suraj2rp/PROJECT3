@@ -1,17 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import Login from './pages/Login'
+import { useEffect } from 'react'
+import API from './utils/axois'
 
 function App() {
   const [count, setCount] = useState(0)
 
+   useEffect(() => {
+    API.get('/')
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.error('Error fetching users:', error);
+      });
+  }, []);
+
+  
+
   return (
-    <div className='flex items-center justify-center h-screen bg-gray-100'>
-      Hello
-
-
-      <h1>Hello Divesh Pagal ho gya hai</h1>
+    <div>
+      <h1>Hwllo</h1>
     </div>
 
   )
