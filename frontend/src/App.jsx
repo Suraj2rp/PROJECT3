@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Login from './pages/Login'
 import { useEffect } from 'react'
 import API from './utils/axois'
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
+import Tables from "./pages/Tables";
+import Forms from "./pages/Forms";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,9 +24,18 @@ function App() {
   
 
   return (
-    <div>
-      <h1>Hwllo</h1>
-    </div>
+    <BrowserRouter>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1 p-6 ml-60">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/tables" element={<Tables />} />
+            <Route path="/forms" element={<Forms />} />
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
 
   )
 }
