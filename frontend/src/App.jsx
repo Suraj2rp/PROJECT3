@@ -7,6 +7,8 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Tables from "./pages/Tables";
 import Forms from "./pages/Forms";
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,9 +31,11 @@ function App() {
         <Sidebar />
         <div className="flex-1 p-6 ml-60">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/tables" element={<Tables />} />
             <Route path="/forms" element={<Forms />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </div>
